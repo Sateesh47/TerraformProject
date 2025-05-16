@@ -28,9 +28,9 @@ module "keyvalut" {
 }
 
 resource "azurerm_key_vault_secret" "aks_secret" {
-  name = module.serviceprincipal.client_id
-  value = module.serviceprincipal.client_secret
-  key_vault_id = module.keyvalut.keyvault_id
+  name = module.serviceprincipal.service_principal_client_id
+  value = module.serviceprincipal.azuread_service_principal_password
+  key_vault_id = module.keyvalut.key_vault_id
   depends_on = [ module.keyvalut ]
 }
 
@@ -39,16 +39,16 @@ module "aks" {
   resource_group_name = var.resource_group_name
   location = var.location
  // service_principal_name = var.service_principal_name
-  client_id = module.serviceprincipal.client_id
-  client_secret = module.serviceprincipal.client_secret
-  cluster_name = vat.cluster_name
+  client_id = module.serviceprincipal.service_principal_client_id
+  client_secret = module.serviceprincipal.azuread_service_principal_password
+  cluster_name = var.cluster_name
   node_pool_name = var.node_pool_name
   depends_on = [ module.serviceprincipal ]
 }
 
 resource "local_file" "kubeconfig" {
   filename = "${path.module}/kubeconfig"
-  content  = module.aks.kubeconfig
+  content  = module.aks.config
   depends_on = [ module.aks ]
   
 }

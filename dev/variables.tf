@@ -38,3 +38,10 @@ variable "node_pool_name" {
   default     = "aksnodepool"
   
 }
+
+variable "cluster_name" {
+  description = "Name of the AKS cluster"
+  type        = string
+  default     = "aks-devcluster"
+  
+}
