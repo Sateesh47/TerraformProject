@@ -20,15 +20,14 @@ variable "service_principal_name" {
 }
 
 variable "SUB_ID" {
-  default = {
-    "subscription_id" = "bd6dd5cc-b9db-4d90-ab26-00bee5328f27"
+ default= "bd6dd5cc-b9db-4d90-ab26-00bee5328f27"
   }
-}
+
 
 variable "keyvault_name" {
   description = "Name of the Key Vault"
   type        = string
-  default     = "aksdevkeyvault"
+  default     = "aksdevkeyvault0526"
   
 }
 

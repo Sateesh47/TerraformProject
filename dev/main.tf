@@ -26,6 +26,17 @@ module "keyvalut" {
     environment = "dev"
   }
 }
+# resource "azurerm_key_vault_access_policy" "terraform" {
+#   key_vault_id = module.keyvalut.key_vault_id
+
+#   tenant_id = module.serviceprincipal.service_principal_tenant_id
+#   object_id = module.serviceprincipal.service_principal_object_id
+#   secret_permissions = [
+#     "Get",
+#     "Set",
+#     "List"
+#   ]
+# }
 
 resource "azurerm_key_vault_secret" "aks_secret" {
   name = module.serviceprincipal.service_principal_client_id

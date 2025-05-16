@@ -22,7 +22,7 @@ variable "node_pool_name" {
 variable "ssh_public_key_path" {
   description = "The path to the SSH public key for the AKS cluster."
   type        = string
-  default     = "~/.ssh/id_rsa.pub"
+  default     = "~/.ssh/id_rsa_new.pub"
   
 }
 
