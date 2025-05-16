@@ -6,7 +6,7 @@ data "azurerm_kubernetes_service_versions" "current" {
 resource "azurerm_kubernetes_cluster" "aks_cluster" {
   name = var.cluster_name
   location = var.location
-    resource_group_name = azurerm_resource_group.rg.name
+    resource_group_name = var.resource_group_name
     dns_prefix = "${var.cluster_name}-dns"
     kubernetes_version =data.azurerm_kubernetes_service_versions.current.latest_version
     node_resource_group = "${var.cluster_name}-node-rg"
@@ -24,8 +24,8 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     }
 
     service_principal {
-        client_id = data.azurerm_client_config.current.client_id
-        client_secret = data.azurerm_client_config.current.client_secret
+        client_id = var.client_id
+        client_secret = var.client_secret
     }
 
     linux_profile {

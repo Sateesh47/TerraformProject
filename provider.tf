@@ -17,7 +17,7 @@ provider "azurerm" {
   features {
     
   }
-  // subscription_id = "bd6dd5cc-b9db-4d90-ab26-00bee5328f27"
+  
 }
 provider "azuread" {
   # Configuration options

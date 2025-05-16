@@ -1,39 +1,40 @@
 variable "resource_group_name" {
-  description = "The name of the resource group."
+  description = "Name of the resource group"
   type        = string
-  default     = "project-dev-rg"
+  default     = "aks-dev-rg"
   
 }
+
 variable "location" {
-  description = "The Azure location where the resource group will be created."
+  description = "The Azure region to deploy the AKS cluster."
   type        = string
   default     = "westus"
+  
+}
+
+variable "service_principal_name" {
+  description = "Name of the service principal"
+  type        = string
+  default     = "aks-dev-sp"
+  
 }
 
 variable "SUB_ID" {
-  description = "The Azure subscription ID."
-  type        = string
-  default     = "bd6dd5cc-b9db-4d90-ab26-00bee5328f27"
-  
+  default = {
+    "subscription_id" = "bd6dd5cc-b9db-4d90-ab26-00bee5328f27"
+  }
 }
 
 variable "keyvault_name" {
-  description = "The name of the Key Vault."
+  description = "Name of the Key Vault"
   type        = string
-  default     = "project-dev-kv"
-  
-}
-
-variable "cluster_name" {
-  description = "The name of the AKS cluster."
-  type        = string
-  default     = "project-dev-aks"
+  default     = "aksdevkeyvault"
   
 }
 
 variable "node_pool_name" {
-  description = "The name of the AKS node pool."
+  description = "Name of the AKS node pool"
   type        = string
-  default     = "project-dev-nodepool"
+  default     = "aksnodepool"
   
 }

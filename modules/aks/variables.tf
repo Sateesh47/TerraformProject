@@ -25,3 +25,23 @@ variable "ssh_public_key_path" {
   default     = "~/.ssh/id_rsa.pub"
   
 }
+
+variable "resource_group_name" {
+  description = "The name of the resource group where the AKS cluster will be created."
+  type        = string
+ // default     = "aks-rg"
+  
+}
+
+variable "client_id" {
+  description = "The client ID of the service principal."
+  type        = string
+ // default     = module.servivepricipal.service_principal_client_id
+  
+}
+variable "client_secret" {
+  description = "The client secret of the service principal."
+  type        = string
+ // default     = module.servivepricipal.azuread_service_principal_password
+  
+}

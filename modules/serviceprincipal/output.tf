@@ -8,8 +8,7 @@ output "service_principal_object_id" {
 }
 
 output "service_principal_tenant_id" {
-  value = data.azuread_service_principal.service_principal.tenant_id
-  
+  value = azuread_service_principal.service_principal.application_tenant_id
 }
 
 output "service_principal_client_id" {
